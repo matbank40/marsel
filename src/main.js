@@ -204,13 +204,25 @@ if (ring) {
     onUpdate: (self) => ring.update(self.progress),
   });
 }
-if (collages) {
-  ScrollTrigger.create({
-    trigger: '.collages',
-    start: 'top top',
-    end: 'bottom bottom',
-    onUpdate: (self) => collages.update(self.progress),
-    onRefreshInit: () => collages.layout(),
+if (collages && !reduceMotion) {
+  collages.covers.forEach((cover, i) => {
+    ScrollTrigger.create({
+      trigger: cover,
+      start: 'top bottom',
+      end: 'top top',
+      scrub: true,
+      onUpdate: (self) => collages.setEnter(i, self.progress),
+    });
+    const next = collages.covers[i + 1];
+    if (next) {
+      ScrollTrigger.create({
+        trigger: next,
+        start: 'top bottom',
+        end: 'top top',
+        scrub: true,
+        onUpdate: (self) => collages.setDepth(i, self.progress),
+      });
+    }
   });
 }
 window.addEventListener('layoutchange', () => ScrollTrigger.refresh());

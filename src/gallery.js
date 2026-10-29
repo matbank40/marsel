@@ -209,42 +209,62 @@ export function initGrid(lightbox) {
   document.fonts?.ready.then(movePill);
 }
 
-// ---------- Горизонтальная лента коллажей ----------
+// ---------- Коллажи: стопка полноэкранных «обложек» ----------
+// Каждая обложка прилипает к экрану, следующая наезжает сверху, а предыдущая
+// уходит вглубь (уменьшается и темнеет). На телефоне коллаж можно листать пальцем вбок.
 export function initCollages(lightbox) {
   const section = document.querySelector('.collages');
   if (!section || !collages.length) return null;
   section.hidden = false;
-  const track = section.querySelector('.collages__track');
-  const bar = section.querySelector('.collages__progress');
+  const wrap = section.querySelector('.covers');
   const slides = collages.map(toSlide);
+  const pad = (n) => String(n).padStart(2, '0');
 
-  track.innerHTML = collages.map((c, i) => `
-    <button class="collage" data-cursor="view" data-i="${i}" aria-label="Открыть коллаж «${c.title}»">
-      <img src="${src(c.id, true)}" srcset="${src(c.id, true)} 1100w, ${src(c.id)} ${c.w}w" sizes="(max-width: 760px) 110vh, 154vh"
-        width="${c.w}" height="${c.h}" alt="${c.alt || c.title}" loading="lazy" decoding="async" draggable="false" />
-    </button>`).join('');
-  const imgs = [...track.querySelectorAll('img')];
+  wrap.innerHTML = collages.map((c, i) => `
+    <article class="cover" style="--accent:${c.color || '#c8a46a'}">
+      <div class="cover__inner">
+        <div class="cover__bg" style="background-image:url('${src(c.id, true)}')"></div>
+        <div class="cover__meta">
+          <span class="cover__num">${pad(i + 1)}<small>/${pad(collages.length)}</small></span>
+          <div><p class="cover__tag">${c.tag || 'Коллаж'}</p><h3 class="cover__title">${c.title}</h3></div>
+        </div>
+        <div class="cover__scroller">
+          <button class="cover__art" data-cursor="view" data-i="${i}" aria-label="Открыть коллаж «${c.title}»">
+            <img src="${src(c.id, true)}" srcset="${src(c.id, true)} 1100w, ${src(c.id)} ${c.w}w"
+              sizes="(max-width: 760px) 160vw, 92vw" width="${c.w}" height="${c.h}"
+              alt="${c.alt || c.title}" loading="lazy" decoding="async" draggable="false" />
+          </button>
+        </div>
+        <p class="cover__hint">Листайте вбок · нажмите, чтобы открыть</p>
+      </div>
+    </article>`).join('');
 
-  let distance = 0;
-  function layout() {
-    distance = Math.max(0, track.scrollWidth - window.innerWidth);
-    section.style.height = `${window.innerHeight + distance}px`;
-  }
-  layout();
-  window.addEventListener('resize', layout);
-  imgs.forEach((im) => im.addEventListener('load', layout, { once: true }));
-
-  track.addEventListener('click', (e) => {
-    const b = e.target.closest('.collage');
+  wrap.addEventListener('click', (e) => {
+    const b = e.target.closest('.cover__art');
     if (b) lightbox.open(slides, Number(b.dataset.i));
   });
 
+  // На телефоне начинаем с середины коллажа — там обычно главный кадр
+  const centerScrollers = () => {
+    wrap.querySelectorAll('.cover__scroller').forEach((sc) => {
+      sc.scrollLeft = (sc.scrollWidth - sc.clientWidth) / 2;
+    });
+  };
+  wrap.querySelectorAll('img').forEach((im) => im.addEventListener('load', centerScrollers, { once: true }));
+  window.addEventListener('resize', centerScrollers);
+
+  const covers = [...wrap.querySelectorAll('.cover')];
   return {
-    layout,
-    update(p) {
-      track.style.transform = `translate3d(${-distance * p}px,0,0)`;
-      bar.style.setProperty('--p', p.toFixed(4));
-      imgs.forEach((im, i) => im.style.setProperty('--px', `${(p * imgs.length - i) * -3}%`));
+    covers,
+    // k — насколько следующая обложка уже наехала на эту (0…1)
+    setDepth(i, k) {
+      const el = covers[i].querySelector('.cover__inner');
+      el.style.transform = `scale(${1 - k * 0.1}) translateY(${-k * 3}%)`;
+      el.style.filter = `brightness(${1 - k * 0.6})`;
+    },
+    // p — прогресс появления обложки снизу (0…1)
+    setEnter(i, p) {
+      covers[i].style.setProperty('--enter', p.toFixed(3));
     },
   };
 }

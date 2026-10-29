@@ -35,13 +35,16 @@ export const photos = [
   { id: 'saint-sound', title: 'Saint Sound', cat: 'portrait', w: 1333, h: 2000, alt: 'Портрет артиста в голубом капюшоне с кулоном Saint Sound' },
 ];
 
-// Панорамные коллажи (соотношение ~2.4:1). Секция «Коллажи» появляется,
-// как только здесь есть хотя бы один элемент.
+// Панорамные коллажи (2000×833). Показываются стопкой «обложек»: каждая на весь экран.
+// tag — подпись над названием, color — цвет акцента (подсветка и номер).
 export const collages = [
-  { id: 'collage-hiphop-motion', title: 'Hip-Hop Motion', w: 2000, h: 833, alt: 'Коллаж Hip-Hop Motion: девушка в наушниках, джинсах и голубой шапке в движении, скейтборд' },
-  { id: 'collage-saint-buzzy', title: 'Saint Buzzy 40', w: 2000, h: 833, alt: 'Коллаж Saint Buzzy 40: артист в маске и голубой куртке на оранжевом фоне' },
-  { id: 'collage-ulyana', title: 'Ulyana', w: 2000, h: 833, alt: 'Коллаж Ulyana: девушка в белой рубашке и галстуке, леопардовый фон' },
-  { id: 'collage-glamour', title: 'Glamour', w: 2000, h: 833, alt: 'Коллаж Glamour: девушка в чёрном жакете и лаковых сапогах с журналом' },
+  { id: 'collage-master-dave', title: 'Master Dave', tag: 'Артист · студия', color: '#c4161c', w: 2000, h: 833, alt: 'Коллаж Master Dave: артист в зелёной бандане и жилете, красные надписи' },
+  { id: 'collage-big-drip', title: 'Big Drip', tag: 'Fashion · студия', color: '#9b1b2a', w: 2000, h: 833, alt: 'Коллаж Big Drip: три девушки в джинсах в студии, готические надписи' },
+  { id: 'collage-subway-surfers', title: 'Subway Surfers', tag: 'Fashion · Абхазия', color: '#f2b315', w: 2000, h: 833, alt: 'Коллаж Subway Surfers in Abkhazia: девушка в красной куртке у моря' },
+  { id: 'collage-saint-buzzy', title: 'Saint Buzzy 40', tag: 'Артист · студия', color: '#f07a1a', w: 2000, h: 833, alt: 'Коллаж Saint Buzzy 40: артист в маске и голубой куртке на оранжевом фоне' },
+  { id: 'collage-hiphop-motion', title: 'Hip-Hop Motion', tag: 'Fashion · студия', color: '#8a3b2e', w: 2000, h: 833, alt: 'Коллаж Hip-Hop Motion: девушка в наушниках, джинсах и голубой шапке в движении, скейтборд' },
+  { id: 'collage-ulyana', title: 'Ulyana', tag: 'Fashion · студия', color: '#b5733c', w: 2000, h: 833, alt: 'Коллаж Ulyana: девушка в белой рубашке и галстуке, леопардовый фон' },
+  { id: 'collage-glamour', title: 'Glamour', tag: 'Fashion · студия', color: '#8f6bd6', w: 2000, h: 833, alt: 'Коллаж Glamour: девушка в чёрном жакете и лаковых сапогах с журналом' },
 ];
 
 export const packages = [
