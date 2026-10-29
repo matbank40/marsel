@@ -28,6 +28,11 @@ export const categories = {
 // Файлы лежат в public/photos: <id>.webp (полный размер) и <id>-sm.webp (превью).
 // Новые фото конвертируются скриптом scripts/optimize_photos.py.
 export const photos = [
+  { id: 'red-hood', title: 'Red Room', cat: 'portrait', w: 1333, h: 2000, alt: 'Парень в чёрном пуховике с капюшоном и белых очках на красном фоне' },
+  { id: 'golden-hour', title: 'Golden Hour', cat: 'portrait', w: 1333, h: 2000, alt: 'Девушка с длинными волосами в тёмных очках в лучах заката' },
+  { id: 'y2k-braids', title: 'Y2K', cat: 'fashion', w: 1333, h: 2000, alt: 'Девушка с косичками в чёрном платье и розовых гетрах в студии' },
+  { id: 'dave-peek', title: 'Master Dave', cat: 'portrait', w: 1333, h: 2000, alt: 'Артист в зелёной кепке закрывает лицо руками с татуировками' },
+  { id: 'dave-green', title: 'Dave in Green', cat: 'fashion', w: 1333, h: 2000, alt: 'Артист в зелёной бандане, жилете и вельветовых брюках в студии' },
   { id: 'pink-jump', title: 'Pink Jump', cat: 'fashion', w: 1333, h: 2000, alt: 'Девушка в белом и меховой накидке в прыжке на розовом фоне' },
   { id: 'red-jacket', title: 'Red Jacket', cat: 'fashion', w: 1333, h: 2000, alt: 'Девушка в красной куртке и джинсах у ограждения в порту' },
   { id: 'pink-shades', title: 'Pink Shades', cat: 'editorial', w: 2000, h: 1333, alt: 'Девушка в розовых очках и белом меху кричит на розовом фоне' },
