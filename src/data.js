@@ -23,11 +23,17 @@ export const categories = {
   editorial: 'Editorial',
   couple: 'Пара',
   concert: 'Концерт',
+  street: 'Улица',
 };
 
 // Файлы лежат в public/photos: <id>.webp (полный размер) и <id>-sm.webp (превью).
 // Новые фото конвертируются скриптом scripts/optimize_photos.py.
 export const photos = [
+  { id: 'skyscraper-dusk', title: 'Moscow Dusk', cat: 'street', w: 1333, h: 2000, alt: 'Парень в очках и пальто на фоне сталинской высотки и закатного неба' },
+  { id: 'river-float', title: 'Afloat', cat: 'editorial', w: 2000, h: 1333, alt: 'Парень в костюме лежит на воде реки в сумерках' },
+  { id: 'brown-suede', title: 'Brown Suede', cat: 'fashion', w: 1333, h: 2000, alt: 'Парень с татуировкой на шее в замшевой куртке и широких брюках в студии' },
+  { id: 'skyscraper-gloves', title: 'Red Sky', cat: 'street', w: 2000, h: 1333, alt: 'Парень в кожаных перчатках и клетчатой рубашке на фоне высотки на закате' },
+  { id: 'river-profile', title: 'River', cat: 'editorial', w: 1333, h: 2000, alt: 'Парень в профиль по плечи в воде, сумеречное небо' },
   { id: 'red-hood', title: 'Red Room', cat: 'portrait', w: 1333, h: 2000, alt: 'Парень в чёрном пуховике с капюшоном и белых очках на красном фоне' },
   { id: 'golden-hour', title: 'Golden Hour', cat: 'portrait', w: 1333, h: 2000, alt: 'Девушка с длинными волосами в тёмных очках в лучах заката' },
   { id: 'y2k-braids', title: 'Y2K', cat: 'fashion', w: 1333, h: 2000, alt: 'Девушка с косичками в чёрном платье и розовых гетрах в студии' },
