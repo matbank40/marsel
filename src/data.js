@@ -29,6 +29,11 @@ export const categories = {
 // Файлы лежат в public/photos: <id>.webp (полный размер) и <id>-sm.webp (превью).
 // Новые фото конвертируются скриптом scripts/optimize_photos.py.
 export const photos = [
+  { id: 'stained-glass', title: 'Stained Glass', cat: 'editorial', w: 1333, h: 2000, alt: 'Девушка в кожаной куртке смотрит вверх на подсвеченный витражный купол' },
+  { id: 'leopard', title: 'Leopard', cat: 'portrait', w: 1333, h: 2000, alt: 'Портрет брюнетки в профиль в леопардовой шубе' },
+  { id: 'night-boots', title: 'Night Boots', cat: 'street', w: 1333, h: 2000, alt: 'Блондинка в кожаном плаще и высоких ботинках на ночной улице среди небоскрёбов' },
+  { id: 'cathedral-crouch', title: 'Cathedral', cat: 'street', w: 1333, h: 2000, alt: 'Парень присел на фоне краснокирпичного готического собора на закате' },
+  { id: 'cathedral-hands', title: 'Gothic', cat: 'street', w: 1333, h: 2000, alt: 'Парень закрывает лицо руками у стены готического собора' },
   { id: 'blue-city', title: 'Blue City', cat: 'street', w: 1333, h: 2000, alt: 'Силуэт девушки в меху на скамейке на фоне синих огней небоскрёбов' },
   { id: 'indian-moto', title: 'Indian', cat: 'street', w: 1333, h: 2000, alt: 'Девушка в шлеме и кожаной куртке у красного мотоцикла Indian' },
   { id: 'big-drip-trio', title: 'Big Drip Trio', cat: 'fashion', w: 1333, h: 2000, alt: 'Три девушки в джинсах с сумками в студии' },
