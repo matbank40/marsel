@@ -1,6 +1,16 @@
 // Весь контент сайта в одном месте: чтобы добавить фото или поменять цену,
 // достаточно отредактировать этот файл.
 
+// Путь к файлам из public/ с учётом базового адреса (на GitHub Pages сайт живёт в /marsel/).
+export const asset = (path) => `${import.meta.env.BASE_URL}${path}`;
+export const photoUrl = (id, small = false) => asset(`photos/${id}${small ? '-sm' : ''}.webp`);
+
+// Адрес серверной функции, которая пересылает заявки в Telegram (api/booking.js на Vercel).
+// VITE_BOOKING_API=off — функции нет (например, GitHub Pages): форма сразу откроет Telegram
+// с готовым текстом заявки.
+const api = import.meta.env.VITE_BOOKING_API ?? 'api/booking';
+export const bookingApi = api === 'off' ? '' : api;
+
 export const contacts = {
   telegram: { handle: '@MARSEL_PH', url: 'https://t.me/MARSEL_PH', note: 'Для записи' },
   channel: { handle: '@MARSEL_PH1', url: 'https://t.me/MARSEL_PH1', note: 'Работы, коллажи' },
@@ -27,7 +37,12 @@ export const photos = [
 
 // Панорамные коллажи (соотношение ~2.4:1). Секция «Коллажи» появляется,
 // как только здесь есть хотя бы один элемент.
-export const collages = [];
+export const collages = [
+  { id: 'collage-hiphop-motion', title: 'Hip-Hop Motion', w: 2000, h: 833, alt: 'Коллаж Hip-Hop Motion: девушка в наушниках, джинсах и голубой шапке в движении, скейтборд' },
+  { id: 'collage-saint-buzzy', title: 'Saint Buzzy 40', w: 2000, h: 833, alt: 'Коллаж Saint Buzzy 40: артист в маске и голубой куртке на оранжевом фоне' },
+  { id: 'collage-ulyana', title: 'Ulyana', w: 2000, h: 833, alt: 'Коллаж Ulyana: девушка в белой рубашке и галстуке, леопардовый фон' },
+  { id: 'collage-glamour', title: 'Glamour', w: 2000, h: 833, alt: 'Коллаж Glamour: девушка в чёрном жакете и лаковых сапогах с журналом' },
+];
 
 export const packages = [
   {

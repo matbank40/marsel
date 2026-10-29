@@ -1,4 +1,4 @@
-import { packages, formatPrice, contacts } from './data.js';
+import { packages, formatPrice, contacts, photoUrl, bookingApi } from './data.js';
 
 const check = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg>';
 
@@ -7,7 +7,7 @@ export function initPackages({ onChoose, finePointer }) {
   const wrap = document.querySelector('.cards');
   wrap.innerHTML = packages.map((p, i) => `
     <article class="card${p.popular ? ' card--gold' : ''}" data-reveal style="--d:${i}">
-      <div class="card__bg"><img src="/photos/${p.photo}-sm.webp" alt="" loading="lazy" /></div>
+      <div class="card__bg"><img src="${photoUrl(p.photo, true)}" alt="" loading="lazy" /></div>
       <div class="card__spot"></div>
       ${p.popular ? '<span class="card__badge">Популярный</span>' : ''}
       <span class="card__name">${p.name}</span>
@@ -182,11 +182,20 @@ export function initBooking() {
     Object.keys(data).forEach((k) => { data[k] = String(data[k]).trim(); });
     lastMessage = buildMessage(data);
 
+    const openTelegram = () => {
+      form.querySelector('.form__tg').href = `${contacts.telegram.url}?text=${encodeURIComponent(lastMessage)}`;
+      fallback.hidden = false;
+    };
+    if (!bookingApi) {
+      openTelegram();
+      return;
+    }
+
     form.classList.add('is-sending');
     try {
       const ctrl = new AbortController();
       const timer = setTimeout(() => ctrl.abort(), 12000);
-      const res = await fetch('/api/booking', {
+      const res = await fetch(bookingApi, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -197,8 +206,7 @@ export function initBooking() {
       if (!res.ok || !json.ok) throw new Error('send failed');
       done.hidden = false;
     } catch {
-      form.querySelector('.form__tg').href = `${contacts.telegram.url}?text=${encodeURIComponent(lastMessage)}`;
-      fallback.hidden = false;
+      openTelegram();
     } finally {
       form.classList.remove('is-sending');
     }

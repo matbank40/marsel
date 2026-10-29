@@ -247,7 +247,16 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var
 
 /* ---------- Манифест ---------- */
 .manifesto { padding: clamp(120px, 20vh, 220px) 0 clamp(60px, 10vh, 120px); position: relative; z-index: 2; background: var(--bg); }
-.manifesto__text { margin: 0; font-size: clamp(30px, 4.4vw, 68px); line-height: 1.12; letter-spacing: -0.035em; font-weight: 600; max-width: 1150px; }
+.about { display: grid; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+.about__photo { margin: 0; position: sticky; top: 100px; }
+.about__frame { position: relative; border-radius: 26px; overflow: hidden; aspect-ratio: 4 / 5; background: var(--bg-3); }
+.about__frame::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08); background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.35)); }
+.about__frame img { width: 100%; height: 118%; object-fit: cover; transform: translateY(var(--py, -8%)); will-change: transform; }
+.about__photo figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; margin-top: 16px; }
+.about__photo figcaption b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 30px; }
+.about__photo figcaption span { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.about__text { padding-top: clamp(0px, 4vw, 60px); }
+.manifesto__text { margin: 0; font-size: clamp(28px, 3.5vw, 58px); line-height: 1.12; letter-spacing: -0.035em; font-weight: 600; max-width: 1150px; }
 .manifesto__text .w { color: rgba(245, 245, 247, 0.14); transition: color 0.2s; }
 .manifesto__text .w.on { color: var(--fg); }
 .manifesto__text .w.accent.on { color: var(--gold-2); }
@@ -307,7 +316,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var
 
 /* ---------- Коллажи ---------- */
 .collages { position: relative; background: var(--bg); z-index: 2; }
-.collages__sticky { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: grid; grid-template-rows: auto 1fr auto; padding: calc(84px + env(safe-area-inset-top)) 0 34px; gap: 24px; }
+.collages__sticky { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr auto; padding: calc(84px + env(safe-area-inset-top)) 0 34px; gap: 24px; }
 .collages__track { display: flex; align-items: center; gap: 24px; padding: 0 var(--pad); will-change: transform; }
 .collage { flex: none; height: min(64vh, 640px); aspect-ratio: 2000 / 833; border-radius: 20px; overflow: hidden; position: relative; background: var(--bg-3); }
 .collage img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.08) translateX(var(--px, 0)); }
@@ -497,6 +506,9 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var
   .hotspot__text b { font-size: 13px; }
   .hotspot__text span { display: none; }
 
+  .about { grid-template-columns: 1fr; gap: 40px; }
+  .about__photo { position: relative; top: 0; }
+  .about__frame { aspect-ratio: 4 / 5; border-radius: 22px; }
   .stats__grid { grid-template-columns: 1fr 1fr 1fr; gap: 10px; padding-top: 32px; padding-bottom: 32px; }
   .stat__num, .stat__suffix { font-size: 11.5vw; letter-spacing: -0.07em; }
   .stat p { font-size: 10px; letter-spacing: 0.14em; }

@@ -9,12 +9,12 @@
   <meta property="og:title" content="MARSEL — Фотограф" />
   <meta property="og:description" content="Визуальное искусство. Каждый кадр — эмоция вне времени. Запись на съёмку в Москве и Калуге." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/photos/blue-veil.webp" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta property="og:image" content="https://matbank40.github.io/marsel/photos/blue-veil.webp" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="/photos/blue-veil.webp" type="image/webp" />
+  <link rel="preload" as="image" href="./photos/blue-veil.webp" type="image/webp" />
 </head>
 <body class="is-loading">
   <!-- Прелоадер -->
@@ -63,7 +63,7 @@
         <div class="story__glow" aria-hidden="true"></div>
         <h1 class="hero-title" aria-label="Marsel"><span>M</span><span>A</span><span>R</span><span>S</span><span>E</span><span>L</span></h1>
         <canvas class="story__canvas" aria-hidden="true"></canvas>
-        <img class="story__fallback" src="/photos/blue-veil.webp" alt="" hidden />
+        <img class="story__fallback" src="./photos/blue-veil.webp" alt="" hidden />
 
         <div class="hero-copy">
           <p class="eyebrow">Фотограф <i></i> Москва <i></i> Калуга</p>
@@ -92,7 +92,7 @@
         </div>
 
         <div class="iris" aria-hidden="true">
-          <img src="/photos/blue-veil.webp" alt="" />
+          <img src="./photos/blue-veil.webp" alt="" />
           <div class="iris__copy">
             <p class="eyebrow">Избранное</p>
             <p class="iris__title">Работы</p>
@@ -105,9 +105,19 @@
 
     <!-- 2. О фотографе -->
     <section class="manifesto" id="about">
-      <div class="container">
-        <p class="eyebrow">О фотографе</p>
-        <p class="manifesto__text" data-words>Я снимаю с 2019 года. Начинал с уличной и репортажной фотографии — потом открыл для себя fashion и editorial. Мне важно поймать тот единственный кадр, где человек настоящий: без маски, без позы, без лишнего напряжения.</p>
+      <div class="container about">
+        <figure class="about__photo">
+          <div class="about__frame">
+            <img src="./photos/marsel-sm.webp" srcset="./photos/marsel-sm.webp 820w, ./photos/marsel.webp 1334w"
+              sizes="(max-width: 760px) 90vw, 40vw" width="1334" height="2000" loading="lazy" decoding="async"
+              alt="Марсель — фотограф, портрет в зимнем лесу" />
+          </div>
+          <figcaption><b>Марсель</b><span>Фотограф · Москва и Калуга</span></figcaption>
+        </figure>
+        <div class="about__text">
+          <p class="eyebrow">О фотографе</p>
+          <p class="manifesto__text" data-words>Я снимаю с 2019 года. Начинал с уличной и репортажной фотографии — потом открыл для себя fashion и editorial. Мне важно поймать тот единственный кадр, где человек настоящий: без маски, без позы, без лишнего напряжения.</p>
+        </div>
       </div>
     </section>
 
@@ -278,8 +288,8 @@
             <button type="button" class="btn btn--ghost form__again">Новая заявка</button>
           </div>
           <div class="form__fallback" hidden>
-            <h3>Почти готово</h3>
-            <p>Автоматическая отправка сейчас недоступна. Откройте Telegram — сообщение с заявкой уже будет набрано, останется нажать «Отправить».</p>
+            <h3>Остался один шаг</h3>
+            <p>Откройте Telegram — сообщение с заявкой уже набрано, останется нажать «Отправить».</p>
             <a class="btn btn--gold form__tg" href="https://t.me/MARSEL_PH" target="_blank" rel="noopener">Открыть Telegram</a>
             <button type="button" class="btn btn--ghost form__copy">Скопировать текст заявки</button>
           </div>

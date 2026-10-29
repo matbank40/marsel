@@ -1,6 +1,4 @@
-import { photos, collages, categories } from './data.js';
-
-const src = (id, small = false) => `/photos/${id}${small ? '-sm' : ''}.webp`;
+import { photos, collages, categories, photoUrl as src } from './data.js';
 const toSlide = (p) => ({ src: src(p.id), title: p.title, sub: categories[p.cat] || 'Коллаж', alt: p.alt || p.title });
 
 // ---------- Лайтбокс ----------
@@ -222,7 +220,7 @@ export function initCollages(lightbox) {
 
   track.innerHTML = collages.map((c, i) => `
     <button class="collage" data-cursor="view" data-i="${i}" aria-label="Открыть коллаж «${c.title}»">
-      <img src="${src(c.id, true)}" srcset="${src(c.id, true)} 820w, ${src(c.id)} ${c.w}w" sizes="(max-width: 760px) 120vh, 160vh"
+      <img src="${src(c.id, true)}" srcset="${src(c.id, true)} 1100w, ${src(c.id)} ${c.w}w" sizes="(max-width: 760px) 110vh, 154vh"
         width="${c.w}" height="${c.h}" alt="${c.alt || c.title}" loading="lazy" decoding="async" draggable="false" />
     </button>`).join('');
   const imgs = [...track.querySelectorAll('img')];

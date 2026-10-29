@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createStage } from './scene/stage.js';
 import { initLightbox, initRing, initGrid, initCollages } from './gallery.js';
 import { initPackages, initBooking } from './booking.js';
+import { photoUrl } from './data.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -153,6 +154,19 @@ function initManifesto() {
   });
 }
 
+// ---------- Портрет фотографа: мягкий параллакс ----------
+function initAboutPhoto() {
+  const img = document.querySelector('.about__frame img');
+  if (!img || reduceMotion) return;
+  ScrollTrigger.create({
+    trigger: '.about__photo',
+    start: 'top bottom',
+    end: 'bottom top',
+    scrub: true,
+    onUpdate: (self) => img.style.setProperty('--py', `${-16 + self.progress * 16}%`),
+  });
+}
+
 // ---------- Счётчики ----------
 function initCounters() {
   document.querySelectorAll('[data-count]').forEach((el) => {
@@ -237,6 +251,7 @@ initPackages({
 
 buildStory();
 initManifesto();
+initAboutPhoto();
 initCounters();
 initReveal();
 initCursor();
@@ -287,7 +302,7 @@ window.addEventListener('layoutchange', () => ScrollTrigger.refresh());
   const imgReady = new Promise((res) => {
     const im = new Image();
     im.onload = im.onerror = res;
-    im.src = '/photos/blue-veil.webp';
+    im.src = photoUrl('blue-veil');
   }).then(() => { target = Math.max(target, 0.7); });
   const minTime = new Promise((r) => setTimeout(r, reduceMotion ? 200 : 1400));
 

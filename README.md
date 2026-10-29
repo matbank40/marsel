@@ -24,6 +24,16 @@ npm run dev
 
 Сборка: `npm run build` (результат в `dist/`).
 
+## Публикация на GitHub Pages
+
+Workflow `.github/workflows/pages.yml` собирает сайт и выкладывает его при каждом пуше.
+Один раз включите Pages: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+Адрес сайта: https://matbank40.github.io/marsel/
+
+GitHub Pages — статический хостинг: на нём нет серверной части, поэтому токен бота туда
+класть нельзя (его увидит любой посетитель). На Pages форма открывает Telegram
+с уже набранной заявкой. Чтобы заявки приходили автоматически, используйте Vercel (ниже).
+
 ## Публикация на Vercel
 
 1. Импортируйте репозиторий на vercel.com — фреймворк Vite определится сам.
