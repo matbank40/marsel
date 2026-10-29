@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initLightbox, initRing, initGrid, initCollages } from './gallery.js';
 import { initPackages, initBooking } from './booking.js';
-import { photoUrl } from './data.js';
+import { photoUrl, asset } from './data.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -258,6 +258,7 @@ window.addEventListener('layoutchange', () => ScrollTrigger.refresh());
       canvas: introEl.querySelector('.intro__canvas'),
       flashEl: introEl.querySelector('.intro__flash'),
       photoUrl: photoUrl(HERO_PHOTO),
+      modelUrl: asset('models/polaroid.obj'),
       lite,
     }).catch(() => null);
   }
