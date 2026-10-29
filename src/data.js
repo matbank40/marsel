@@ -29,6 +29,11 @@ export const categories = {
 // Файлы лежат в public/photos: <id>.webp (полный размер) и <id>-sm.webp (превью).
 // Новые фото конвертируются скриптом scripts/optimize_photos.py.
 export const photos = [
+  { id: 'city-lights', title: 'City Lights', cat: 'street', w: 2000, h: 1333, alt: 'Парень в очках и пальто на ночной смотровой, огни Москва-Сити в движении' },
+  { id: 'big-drip-duo', title: 'Big Drip', cat: 'fashion', w: 2000, h: 1333, alt: 'Две девушки в кружевном и чёрном топах и джинсах в студии' },
+  { id: 'prayer', title: 'Prayer', cat: 'portrait', w: 1333, h: 2000, alt: 'Девушка в белом лонгсливе в профиль, сложенные руки и серебряные браслеты' },
+  { id: 'lace-squat', title: 'Lace', cat: 'fashion', w: 1333, h: 2000, alt: 'Девушка в белом кружевном топе и серых джинсах сидит на корточках' },
+  { id: 'flare-jeans', title: 'Flare', cat: 'fashion', w: 1333, h: 2000, alt: 'Девушка в чёрном топе и джинсах-клёш смотрит вверх, студия' },
   { id: 'skyscraper-dusk', title: 'Moscow Dusk', cat: 'street', w: 1333, h: 2000, alt: 'Парень в очках и пальто на фоне сталинской высотки и закатного неба' },
   { id: 'river-float', title: 'Afloat', cat: 'editorial', w: 2000, h: 1333, alt: 'Парень в костюме лежит на воде реки в сумерках' },
   { id: 'brown-suede', title: 'Brown Suede', cat: 'fashion', w: 1333, h: 2000, alt: 'Парень с татуировкой на шее в замшевой куртке и широких брюках в студии' },
