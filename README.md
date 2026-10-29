@@ -30,7 +30,7 @@ npm run dev
 
 Workflow `.github/workflows/pages.yml` собирает сайт и выкладывает его при каждом пуше.
 Один раз включите Pages: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-Адрес сайта: https://matbank40.github.io/marsel/
+Адрес сайта: https://marselph.ru (домен на Beget: A-записи на IP GitHub Pages, www — CNAME)
 
 GitHub Pages — статический хостинг: на нём нет серверной части, поэтому токен бота туда
 класть нельзя (его увидит любой посетитель). На Pages форма открывает Telegram
