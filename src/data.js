@@ -29,6 +29,11 @@ export const categories = {
 // Файлы лежат в public/photos: <id>.webp (полный размер) и <id>-sm.webp (превью).
 // Новые фото конвертируются скриптом scripts/optimize_photos.py.
 export const photos = [
+  { id: 'blue-city', title: 'Blue City', cat: 'street', w: 1333, h: 2000, alt: 'Силуэт девушки в меху на скамейке на фоне синих огней небоскрёбов' },
+  { id: 'indian-moto', title: 'Indian', cat: 'street', w: 1333, h: 2000, alt: 'Девушка в шлеме и кожаной куртке у красного мотоцикла Indian' },
+  { id: 'big-drip-trio', title: 'Big Drip Trio', cat: 'fashion', w: 1333, h: 2000, alt: 'Три девушки в джинсах с сумками в студии' },
+  { id: 'night-fur', title: 'Night Fur', cat: 'street', w: 2000, h: 1333, alt: 'Девушка в чёрной шубе, волосы закрывают лицо, ночные огни офисов' },
+  { id: 'grate', title: 'Grate', cat: 'editorial', w: 2000, h: 1333, alt: 'Девушка в чёрной шубе сидит на металлической решётке, тёплый свет на лице' },
   { id: 'city-lights', title: 'City Lights', cat: 'street', w: 2000, h: 1333, alt: 'Парень в очках и пальто на ночной смотровой, огни Москва-Сити в движении' },
   { id: 'big-drip-duo', title: 'Big Drip', cat: 'fashion', w: 2000, h: 1333, alt: 'Две девушки в кружевном и чёрном топах и джинсах в студии' },
   { id: 'prayer', title: 'Prayer', cat: 'portrait', w: 1333, h: 2000, alt: 'Девушка в белом лонгсливе в профиль, сложенные руки и серебряные браслеты' },
