@@ -28,6 +28,11 @@ export const categories = {
 // Файлы лежат в public/photos: <id>.webp (полный размер) и <id>-sm.webp (превью).
 // Новые фото конвертируются скриптом scripts/optimize_photos.py.
 export const photos = [
+  { id: 'pink-jump', title: 'Pink Jump', cat: 'fashion', w: 1333, h: 2000, alt: 'Девушка в белом и меховой накидке в прыжке на розовом фоне' },
+  { id: 'red-jacket', title: 'Red Jacket', cat: 'fashion', w: 1333, h: 2000, alt: 'Девушка в красной куртке и джинсах у ограждения в порту' },
+  { id: 'pink-shades', title: 'Pink Shades', cat: 'editorial', w: 2000, h: 1333, alt: 'Девушка в розовых очках и белом меху кричит на розовом фоне' },
+  { id: 'knife', title: 'Final Girl', cat: 'editorial', w: 1320, h: 2000, alt: 'Девушка с гримом крови и ножом смотрит вверх, голубой фон' },
+  { id: 'pink-fur', title: 'Pink Fur', cat: 'fashion', w: 1333, h: 2000, alt: 'Девушка в пятнистой шубе и белой кружевной юбке на розовом фоне' },
   { id: 'brown-leather', title: 'Brown Leather', cat: 'fashion', w: 1333, h: 2000, alt: 'Девушка в коричневой кожаной куртке и брюках на белом фоне' },
   { id: 'kosmos', title: 'Kosmos', cat: 'portrait', w: 1333, h: 2000, alt: 'Портрет парня с татуировками на лице на вечерней улице' },
   { id: 'seaside-red', title: 'Seaside', cat: 'fashion', w: 2000, h: 1333, alt: 'Девушка в красной куртке и джинсах лежит у моря' },
