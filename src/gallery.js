@@ -81,15 +81,22 @@ export function initRing(lightbox) {
   const stage = document.querySelector('.ring-stage');
   if (!ring || !photos.length) return null;
 
-  // минимум 10 карточек, чтобы кольцо выглядело полным
-  const repeat = Math.max(1, Math.ceil(10 / photos.length));
-  const items = Array.from({ length: photos.length * repeat }, (_, i) => photos[i % photos.length]);
+  // В кольце ровно RING_SIZE карточек: с ростом портфолио кольцо не раздувается.
+  // Берём кадры равномерно по всему списку (или отмеченные featured: true),
+  // при нехватке фото повторяем их.
+  const RING_SIZE = 12;
+  const featured = photos.filter((p) => p.featured);
+  const pool = featured.length >= RING_SIZE ? featured.slice(0, RING_SIZE)
+    : photos.length > RING_SIZE
+      ? Array.from({ length: RING_SIZE }, (_, i) => photos[Math.floor((i * photos.length) / RING_SIZE)])
+      : photos;
+  const items = Array.from({ length: RING_SIZE }, (_, i) => pool[i % pool.length]);
   const N = items.length;
-  const slides = photos.map(toSlide);
+  const slides = pool.map(toSlide);
 
   ring.style.setProperty('--n', N);
   ring.innerHTML = items.map((p, i) => `
-    <button class="ring__item" style="--i:${i}" data-cursor="view" data-idx="${i % photos.length}" aria-label="Открыть фото «${p.title}»">
+    <button class="ring__item" style="--i:${i}" data-cursor="view" data-idx="${i % pool.length}" aria-label="Открыть фото «${p.title}»">
       <img src="${src(p.id, true)}" alt="${p.alt}" width="820" height="1230" loading="lazy" decoding="async" draggable="false" />
     </button>`).join('');
   const els = [...ring.children];
