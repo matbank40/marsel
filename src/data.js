@@ -28,6 +28,11 @@ export const categories = {
 // Файлы лежат в public/photos: <id>.webp (полный размер) и <id>-sm.webp (превью).
 // Новые фото конвертируются скриптом scripts/optimize_photos.py.
 export const photos = [
+  { id: 'brown-leather', title: 'Brown Leather', cat: 'fashion', w: 1333, h: 2000, alt: 'Девушка в коричневой кожаной куртке и брюках на белом фоне' },
+  { id: 'kosmos', title: 'Kosmos', cat: 'portrait', w: 1333, h: 2000, alt: 'Портрет парня с татуировками на лице на вечерней улице' },
+  { id: 'seaside-red', title: 'Seaside', cat: 'fashion', w: 2000, h: 1333, alt: 'Девушка в красной куртке и джинсах лежит у моря' },
+  { id: 'blue-marks', title: 'Blue Marks', cat: 'portrait', w: 1333, h: 2000, alt: 'Крупный портрет парня с рисунками на лице и тоннелями в ушах' },
+  { id: 'red-tongue', title: 'Red', cat: 'portrait', w: 1333, h: 2000, alt: 'Девушка в красной куртке показывает язык, у моря' },
   { id: 'blue-veil', title: 'Blue Veil', cat: 'editorial', w: 1333, h: 2000, alt: 'Девушка с синими волосами в чёрной вуали, снятая сквозь кольцо света' },
   { id: 'ice-hood', title: 'Ice Hood', cat: 'fashion', w: 1333, h: 2000, alt: 'Парень в голубой куртке с капюшоном на голубом фоне' },
   { id: 'hiphop-motion', title: 'Hip-Hop Motion', cat: 'fashion', w: 1333, h: 2000, alt: 'Девушка в наушниках и голубой шапке держит кроссовок' },
