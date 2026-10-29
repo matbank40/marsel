@@ -141,10 +141,19 @@ export async function createIntro({ canvas, flashEl, photoUrl, lite = false }) {
   }
 
   let raf = 0;
+  let finish = () => {};
   const loop = (t) => {
-    render(t);
+    try {
+      render(t);
+    } catch (e) {
+      // любая ошибка рендера — сразу показываем сайт, а не замерший кадр
+      console.error(e);
+      finish();
+      return;
+    }
     raf = requestAnimationFrame(loop);
   };
+  canvas.addEventListener('webglcontextlost', () => finish(), { once: true });
 
   function flash() {
     gsap.fromTo(flashEl, { opacity: 0 }, { opacity: 0.9, duration: 0.05, ease: 'none', yoyo: true, repeat: 1, repeatDelay: 0.04 });
@@ -161,7 +170,6 @@ export async function createIntro({ canvas, flashEl, photoUrl, lite = false }) {
   }
 
   let tl = null;
-  let finish = () => {};
 
   return {
     // компилируем шейдеры заранее, чтобы первый кадр не дёргался
@@ -178,13 +186,23 @@ export async function createIntro({ canvas, flashEl, photoUrl, lite = false }) {
           revealed = true;
           onReveal();
         };
+        let done = false;
+        // Страховка: что бы ни случилось с WebGL или таймлайном, через 12 с сайт откроется.
+        // Если вкладку свернули посреди ролика, тоже не держим его — вернутся уже к сайту.
+        const safety = setTimeout(() => finish(), 12000);
+        const onHidden = () => { if (document.hidden) finish(); };
+        document.addEventListener('visibilitychange', onHidden);
         finish = () => {
+          if (done) return;
+          done = true;
+          clearTimeout(safety);
+          document.removeEventListener('visibilitychange', onHidden);
           tl?.kill();
           reveal();
-          gsap.to(canvas, {
-            opacity: 0, duration: 0.6, ease: 'power2.out',
-            onComplete: () => { dispose(); resolve(); },
-          });
+          // затухание через CSS, без GSAP: срабатывает, даже если его тикер встал
+          canvas.style.transition = 'opacity 0.6s ease-out';
+          canvas.style.opacity = '0';
+          setTimeout(() => { dispose(); resolve(); }, 650);
         };
 
         tl = gsap.timeline({ onComplete: () => finish() });
@@ -217,6 +235,7 @@ export async function createIntro({ canvas, flashEl, photoUrl, lite = false }) {
         // ?intro-seek — ручная перемотка ролика для отладки кадров
         if (new URLSearchParams(location.search).has('intro-seek')) {
           tl.pause();
+          clearTimeout(safety);
           window.__introSeek = (t) => tl.seek(t, false);
         }
       });
