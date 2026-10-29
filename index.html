@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>MARSEL — Фотограф · Москва и Калуга</title>
+  <meta name="description" content="Marsel — фотограф в Москве и Калуге. Портрет, fashion, editorial и парные съёмки. Портфолио и онлайн-запись на съёмку." />
+  <meta name="theme-color" content="#050505" />
+  <meta property="og:title" content="MARSEL — Фотограф" />
+  <meta property="og:description" content="Визуальное искусство. Каждый кадр — эмоция вне времени. Запись на съёмку в Москве и Калуге." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/photos/blue-veil.webp" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/photos/blue-veil.webp" type="image/webp" />
+</head>
+<body class="is-loading">
+  <!-- Прелоадер -->
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__mark">
+      <svg viewBox="0 0 100 100" class="preloader__iris"><g></g></svg>
+    </div>
+    <div class="preloader__word"><span>M</span><span>A</span><span>R</span><span>S</span><span>E</span><span>L</span></div>
+    <div class="preloader__bar"><i></i></div>
+    <div class="preloader__count">0</div>
+  </div>
+
+  <div class="cursor" aria-hidden="true"><div class="cursor__ring"><span class="cursor__label"></span></div><div class="cursor__dot"></div></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Навигация -->
+  <header class="nav">
+    <a href="#top" class="nav__logo" data-scroll>MARSEL</a>
+    <nav class="nav__links" aria-label="Основная навигация">
+      <a href="#about" data-scroll>О фотографе</a>
+      <a href="#works" data-scroll>Работы</a>
+      <a href="#packages" data-scroll>Пакеты</a>
+      <a href="#contacts" data-scroll>Контакты</a>
+    </nav>
+    <a href="#booking" class="nav__cta" data-scroll>Записаться</a>
+    <button class="nav__burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <div class="menu" aria-hidden="true">
+    <nav class="menu__links">
+      <a href="#about" data-scroll><small>01</small>О фотографе</a>
+      <a href="#works" data-scroll><small>02</small>Работы</a>
+      <a href="#packages" data-scroll><small>03</small>Пакеты</a>
+      <a href="#booking" data-scroll><small>04</small>Запись</a>
+    </nav>
+    <div class="menu__foot">
+      <a href="https://t.me/MARSEL_PH" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://instagram.com/marsel_phgr" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- 1. История с 3D-камерой -->
+    <section class="story" id="story">
+      <div class="story__sticky">
+        <div class="story__glow" aria-hidden="true"></div>
+        <h1 class="hero-title" aria-label="Marsel"><span>M</span><span>A</span><span>R</span><span>S</span><span>E</span><span>L</span></h1>
+        <canvas class="story__canvas" aria-hidden="true"></canvas>
+        <img class="story__fallback" src="/photos/blue-veil.webp" alt="" hidden />
+
+        <div class="hero-copy">
+          <p class="eyebrow">Фотограф <i></i> Москва <i></i> Калуга</p>
+          <p class="hero-copy__lead">Визуальное искусство.<br /><em>Каждый кадр — эмоция вне&nbsp;времени.</em></p>
+          <div class="hero-copy__cta">
+            <a href="#works" class="btn btn--light" data-scroll>Смотреть работы</a>
+            <a href="#booking" class="btn btn--ghost" data-scroll>Записаться</a>
+          </div>
+        </div>
+
+        <div class="story-line story-line--left" data-line="1">
+          <p class="eyebrow">С 2019 года</p>
+          <h2>Не просто фото.<br /><em>Эмоция</em>, которая остаётся.</h2>
+        </div>
+
+        <div class="hotspots" aria-hidden="true">
+          <div class="hotspot" data-anchor="color" data-dy="-1"><i class="hotspot__dot"></i><i class="hotspot__line"></i><div class="hotspot__text"><b>Цвет</b><span>Фирменная обработка</span></div></div>
+          <div class="hotspot" data-anchor="aperture" data-dy="1"><i class="hotspot__dot"></i><i class="hotspot__line"></i><div class="hotspot__text"><b>Диафрагма</b><span>Глубина и атмосфера</span></div></div>
+          <div class="hotspot" data-anchor="focus" data-dy="-1"><i class="hotspot__dot"></i><i class="hotspot__line"></i><div class="hotspot__text"><b>Фокус</b><span>Взгляд, жест, фактура</span></div></div>
+          <div class="hotspot" data-anchor="light" data-dy="1"><i class="hotspot__dot"></i><i class="hotspot__line"></i><div class="hotspot__text"><b>Свет</b><span>Студия и улица</span></div></div>
+        </div>
+
+        <div class="story-line story-line--center" data-line="2">
+          <p class="eyebrow">Портфолио</p>
+          <h2>Посмотрите <em>сквозь объектив</em></h2>
+        </div>
+
+        <div class="iris" aria-hidden="true">
+          <img src="/photos/blue-veil.webp" alt="" />
+          <div class="iris__copy">
+            <p class="eyebrow">Избранное</p>
+            <p class="iris__title">Работы</p>
+          </div>
+        </div>
+
+        <div class="scroll-hint" aria-hidden="true"><span>Листайте</span><i></i></div>
+      </div>
+    </section>
+
+    <!-- 2. О фотографе -->
+    <section class="manifesto" id="about">
+      <div class="container">
+        <p class="eyebrow">О фотографе</p>
+        <p class="manifesto__text" data-words>Я снимаю с 2019 года. Начинал с уличной и репортажной фотографии — потом открыл для себя fashion и editorial. Мне важно поймать тот единственный кадр, где человек настоящий: без маски, без позы, без лишнего напряжения.</p>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container stats__grid">
+        <div class="stat" data-reveal><span class="stat__num" data-count="5">0</span><span class="stat__suffix">+</span><p>лет опыта</p></div>
+        <div class="stat" data-reveal><span class="stat__num" data-count="600">0</span><span class="stat__suffix">+</span><p>съёмок</p></div>
+        <div class="stat" data-reveal><span class="stat__num" data-count="12">0</span><p>городов</p></div>
+      </div>
+      <div class="container principles">
+        <article class="principle" data-reveal>
+          <span class="principle__n">01</span>
+          <h3>Честность</h3>
+          <p>Не ставлю искусственных поз. Снимаю людей такими, какие они есть, — и это всегда красиво.</p>
+        </article>
+        <article class="principle" data-reveal>
+          <span class="principle__n">02</span>
+          <h3>Детали</h3>
+          <p>Свет, фактура, мелкий жест — из этого складывается кадр, который хочется рассматривать снова.</p>
+        </article>
+        <article class="principle" data-reveal>
+          <span class="principle__n">03</span>
+          <h3>Доверие</h3>
+          <p>Работаю спокойно и без спешки. Клиенты говорят, что забывают о камере уже через 10 минут.</p>
+        </article>
+      </div>
+      <p class="container stats__note" data-reveal>Работал с музыкальными артистами, брендами и частными клиентами. Базируюсь в Москве и Калуге, выезжаю по всей России и за рубеж.</p>
+    </section>
+
+    <!-- 3. Карусель избранного -->
+    <section class="ring-section" id="works">
+      <div class="ring-section__sticky">
+        <div class="ring-section__head">
+          <p class="eyebrow">Портфолио</p>
+          <h2 class="section-title">Избранные <em>работы</em></h2>
+        </div>
+        <div class="ring-stage">
+          <div class="ring"></div>
+        </div>
+        <p class="ring-section__hint">Нажмите на кадр, чтобы открыть</p>
+      </div>
+    </section>
+
+    <!-- 4. Вся галерея -->
+    <section class="portfolio">
+      <div class="container">
+        <div class="portfolio__head">
+          <h2 class="section-title section-title--sm">Все <em>съёмки</em></h2>
+          <div class="filters" role="tablist" aria-label="Категории"></div>
+        </div>
+        <div class="grid"></div>
+      </div>
+    </section>
+
+    <!-- 5. Коллажи (появляется, когда в data.js есть коллажи) -->
+    <section class="collages" id="collages" hidden>
+      <div class="collages__sticky">
+        <div class="collages__head container">
+          <p class="eyebrow">Авторские коллажи</p>
+          <h2 class="section-title section-title--sm">Истории <em>в одном кадре</em></h2>
+        </div>
+        <div class="collages__track"></div>
+        <div class="collages__progress"><i></i></div>
+      </div>
+    </section>
+
+    <!-- 6. Как проходит съёмка -->
+    <section class="process">
+      <div class="container">
+        <p class="eyebrow">Процесс</p>
+        <h2 class="section-title section-title--sm">Как проходит <em>съёмка</em></h2>
+        <ol class="steps">
+          <li class="step" data-reveal><span>01</span><h3>Консультация</h3><p>За 2–3 дня обсуждаем идею, образы, референсы и локацию.</p></li>
+          <li class="step" data-reveal><span>02</span><h3>Съёмка</h3><p>Спокойная атмосфера, подсказки по позированию, никакой спешки.</p></li>
+          <li class="step" data-reveal><span>03</span><h3>Отбор</h3><p>Присылаю все удачные кадры — вы выбираете любимые.</p></li>
+          <li class="step" data-reveal><span>04</span><h3>Обработка</h3><p>Фирменная ретушь и цветокоррекция. Готовность — от 3 дней.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 7. Пакеты -->
+    <section class="packages" id="packages">
+      <div class="container">
+        <p class="eyebrow">Пакеты съёмки</p>
+        <h2 class="section-title section-title--sm">Выберите свой <em>формат</em></h2>
+        <div class="cards"></div>
+        <p class="packages__note">Вопросы или нестандартный формат? <a href="https://t.me/MARSEL_PH" target="_blank" rel="noopener">Напишите в Telegram</a> — обсудим.</p>
+      </div>
+    </section>
+
+    <!-- 8. Запись -->
+    <section class="booking" id="booking">
+      <div class="container booking__grid">
+        <div class="booking__intro">
+          <p class="eyebrow">Контакт</p>
+          <h2 class="section-title section-title--sm">Записаться <em>на&nbsp;съёмку</em></h2>
+          <p class="booking__lead">Оставьте заявку — она сразу придёт мне в Telegram. Отвечу в ближайшие часы.</p>
+
+          <div class="contacts" id="contacts">
+            <p class="eyebrow eyebrow--muted">Связаться напрямую</p>
+            <a class="contact" href="https://t.me/MARSEL_PH" target="_blank" rel="noopener">
+              <span class="contact__icon"><svg viewBox="0 0 24 24"><path d="M21.5 4.3 18.4 19c-.2 1-.8 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.3.3-.5.5-1 .5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.6 13 2 11.6c-1-.3-1-1 .2-1.5L20.2 3.2c.8-.3 1.6.2 1.3 1.1Z"/></svg></span>
+              <span class="contact__body"><b>@MARSEL_PH</b><small>Для записи</small></span><span class="contact__arrow">↗</span>
+            </a>
+            <a class="contact" href="https://t.me/MARSEL_PH1" target="_blank" rel="noopener">
+              <span class="contact__icon"><svg viewBox="0 0 24 24"><path d="M21.5 4.3 18.4 19c-.2 1-.8 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.3.3-.5.5-1 .5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.6 13 2 11.6c-1-.3-1-1 .2-1.5L20.2 3.2c.8-.3 1.6.2 1.3 1.1Z"/></svg></span>
+              <span class="contact__body"><b>@MARSEL_PH1</b><small>Канал · работы, коллажи</small></span><span class="contact__arrow">↗</span>
+            </a>
+            <a class="contact" href="https://instagram.com/marsel_phgr" target="_blank" rel="noopener">
+              <span class="contact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span>
+              <span class="contact__body"><b>marsel_phgr</b><small>Instagram · портфолио</small></span><span class="contact__arrow">↗</span>
+            </a>
+          </div>
+
+          <div class="facts">
+            <p class="eyebrow eyebrow--muted">Важно знать</p>
+            <ul>
+              <li>Съёмки в Москве и Калуге, выезд по России</li>
+              <li>Предоплата фиксирует дату</li>
+              <li>Перенос — не позднее чем за 2 дня</li>
+              <li>Консультация за 2–3 дня до съёмки</li>
+            </ul>
+          </div>
+        </div>
+
+        <form class="form" novalidate>
+          <div class="form__glow" aria-hidden="true"></div>
+          <label class="field">
+            <span class="field__label">Имя <i>*</i></span>
+            <input name="name" type="text" autocomplete="name" placeholder="Ваше имя" required maxlength="80" />
+            <span class="field__error">Как к вам обращаться?</span>
+          </label>
+          <label class="field">
+            <span class="field__label">Телефон или Telegram <i>*</i></span>
+            <input name="contact" type="text" autocomplete="tel" inputmode="text" placeholder="+7 999 000-00-00 или @username" required maxlength="80" />
+            <span class="field__error">Укажите телефон или @username</span>
+          </label>
+
+          <fieldset class="field field--packages">
+            <legend class="field__label">Пакет</legend>
+            <div class="pkg-options"></div>
+          </fieldset>
+
+          <div class="field field--date">
+            <span class="field__label">Желаемая дата</span>
+            <button type="button" class="date-btn" aria-haspopup="dialog" aria-expanded="false">
+              <span class="date-btn__value">Выберите дату</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+            </button>
+            <div class="calendar" role="dialog" aria-label="Выбор даты" hidden></div>
+            <input type="hidden" name="date" />
+          </div>
+
+          <label class="field">
+            <span class="field__label">Комментарий <small>(необязательно)</small></span>
+            <textarea name="comment" rows="3" placeholder="Пожелания, идеи, вопросы…" maxlength="1000"></textarea>
+          </label>
+
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <button type="submit" class="btn btn--gold form__submit"><span>Отправить заявку</span><i class="spinner"></i></button>
+          <p class="form__note">Нажимая кнопку, вы соглашаетесь на обработку контактных данных для связи по съёмке.</p>
+
+          <div class="form__done" hidden>
+            <svg viewBox="0 0 52 52" class="check"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg>
+            <h3>Заявка отправлена</h3>
+            <p>Скоро напишу вам. Спасибо, что выбрали меня!</p>
+            <button type="button" class="btn btn--ghost form__again">Новая заявка</button>
+          </div>
+          <div class="form__fallback" hidden>
+            <h3>Почти готово</h3>
+            <p>Автоматическая отправка сейчас недоступна. Откройте Telegram — сообщение с заявкой уже будет набрано, останется нажать «Отправить».</p>
+            <a class="btn btn--gold form__tg" href="https://t.me/MARSEL_PH" target="_blank" rel="noopener">Открыть Telegram</a>
+            <button type="button" class="btn btn--ghost form__copy">Скопировать текст заявки</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__big" aria-hidden="true">MARSEL</div>
+    <div class="container footer__row">
+      <p>© <span class="year"></span> Marsel · Фотограф · Москва и Калуга</p>
+      <nav>
+        <a href="https://t.me/MARSEL_PH" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://t.me/MARSEL_PH1" target="_blank" rel="noopener">Канал</a>
+        <a href="https://instagram.com/marsel_phgr" target="_blank" rel="noopener">Instagram</a>
+        <a href="#top" data-scroll>Наверх ↑</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Лайтбокс -->
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото" hidden>
+    <div class="lightbox__bg"></div>
+    <figure class="lightbox__figure">
+      <img class="lightbox__img" alt="" />
+      <figcaption class="lightbox__cap"><span class="lightbox__title"></span><span class="lightbox__count"></span></figcaption>
+    </figure>
+    <button class="lightbox__btn lightbox__close" aria-label="Закрыть">✕</button>
+    <button class="lightbox__btn lightbox__prev" aria-label="Предыдущее">←</button>
+    <button class="lightbox__btn lightbox__next" aria-label="Следующее">→</button>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
