@@ -71,6 +71,8 @@ function showHero() {
   ScrollTrigger.refresh();
   if (reduceMotion) return;
   // снимок из ролика «доезжает» до кадрирования первого экрана
+  // боковые кадры триптиха выезжают снизу вслед за главным
+  gsap.from('.hero__side', { yPercent: 12, autoAlpha: 0, duration: 1.4, stagger: 0.12, ease: 'expo.out', delay: 0.2 });
   gsap.fromTo('.hero__media', { scale: 1.18 }, { scale: 1, duration: 1.8, ease: 'power3.out', clearProps: 'transform' });
   gsap.from('.hero__title span', { yPercent: 105, stagger: 0.06, duration: 1.2, ease: 'expo.out', delay: 0.15 });
   gsap.from('.hero__row > *', { y: 24, autoAlpha: 0, stagger: 0.1, duration: 1, ease: 'expo.out', delay: 0.45 });
