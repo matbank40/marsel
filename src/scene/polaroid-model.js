@@ -161,7 +161,8 @@ export async function buildPolaroidModel({ photo, url }) {
   photoTex.colorSpace = THREE.SRGBColorSpace;
   const visible = (photo.image.width / photo.image.height) / (PRINT.photoW / PRINT.photoH);
   photoTex.repeat.set(1, visible);
-  photoTex.offset.set(0, (1 - visible) / 2);
+  // окно снимка квадратное: берём верхнюю часть вертикального кадра, где лицо
+  photoTex.offset.set(0, (1 - visible) * 0.92);
   photoTex.needsUpdate = true;
   const photoMesh = new THREE.Mesh(
     new THREE.PlaneGeometry(PRINT.photoW, PRINT.photoH),

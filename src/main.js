@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 const lite = !finePointer || window.innerWidth < 760 || (navigator.hardwareConcurrency || 8) <= 4;
-const HERO_PHOTO = 'blue-veil';
+const HERO_PHOTO = 'hero';
 
 document.querySelector('.year').textContent = new Date().getFullYear();
 
@@ -52,7 +52,7 @@ burger.addEventListener('click', () => setMenu(!document.documentElement.classLi
 
 // ---------- Первый экран ----------
 function initHeroParallax() {
-  const img = document.querySelector('.hero__media img');
+  const img = document.querySelector('.hero__media');
   if (reduceMotion) return;
   ScrollTrigger.create({
     trigger: '.hero',
@@ -71,7 +71,7 @@ function showHero() {
   ScrollTrigger.refresh();
   if (reduceMotion) return;
   // снимок из ролика «доезжает» до кадрирования первого экрана
-  gsap.fromTo('.hero__media img', { scale: 1.18 }, { scale: 1, duration: 1.8, ease: 'power3.out', clearProps: 'transform' });
+  gsap.fromTo('.hero__media', { scale: 1.18 }, { scale: 1, duration: 1.8, ease: 'power3.out', clearProps: 'transform' });
   gsap.from('.hero__title span', { yPercent: 105, stagger: 0.06, duration: 1.2, ease: 'expo.out', delay: 0.15 });
   gsap.from('.hero__row > *', { y: 24, autoAlpha: 0, stagger: 0.1, duration: 1, ease: 'expo.out', delay: 0.45 });
 }
@@ -265,7 +265,7 @@ window.addEventListener('layoutchange', () => ScrollTrigger.refresh());
   target = 0.85;
   intro?.warmup();
   await new Promise((r) => {
-    const img = document.querySelector('.hero__media img');
+    const img = document.querySelector('.hero__photo');
     if (img.complete) r();
     else img.addEventListener('load', r, { once: true }), img.addEventListener('error', r, { once: true });
   });
